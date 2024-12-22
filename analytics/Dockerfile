@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY analytics/requirements.txt /app/
+COPY ./requirements.txt /app/
 
 # Install dependencies
 RUN apt-get update -y && apt install -y build-essential libpq-dev && \
@@ -10,8 +10,8 @@ RUN apt-get update -y && apt install -y build-essential libpq-dev && \
     pip install -r requirements.txt
 
 # Copy the rest into container
-COPY analytics/app.py /app/
-COPY analytics/config.py /app/
+COPY ./app.py /app/
+COPY ./config.py /app/
 
 # Expose the port your app runs on
 EXPOSE 5153
